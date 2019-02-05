@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="C:/STS/sts-bundle/lib/spring-5.1.2dist/spring-framework-5.1.2.RELEASE/mockito-junit-jupiter-2.24.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
