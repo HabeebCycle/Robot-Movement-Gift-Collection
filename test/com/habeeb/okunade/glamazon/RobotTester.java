@@ -39,7 +39,7 @@ class RobotTester {
 	}
 	
 	@Test
-	@DisplayName("Robot cannot move out of the grid when at the upper-left edge")
+	@DisplayName("Robot upward movement")
 	  void testMoveUp() {
 	    assertNull(robot);
 	    robot = new Robot(0,0,3);
@@ -47,10 +47,17 @@ class RobotTester {
 	    robot.moveUp();
 	    assertEquals("Robot cannot move up", 0, robot.getLocX());
 	    assertEquals("Robot cannot move up", 0, robot.getLocY());
+	    
+	    assertNotNull(robot);	    
+	    robot = new Robot(2,2,3);
+	    // Move robot to the up at position[2,2]
+	    robot.moveUp();
+	    assertEquals("Robot can move up", 2, robot.getLocX());
+	    assertEquals("Robot can move up", 1, robot.getLocY());
 	}
 	
 	@Test
-	@DisplayName("Robot can move right of the grid when at the upper-left edge")
+	@DisplayName("Robot right movement")
 	  void testMoveRight() {
 	    assertNull(robot);
 	    robot = new Robot(0,0,3);
@@ -58,6 +65,13 @@ class RobotTester {
 	    robot.moveRight();
 	    assertEquals("Robot can move right", 1, robot.getLocX());
 	    assertEquals("Robot can move right", 0, robot.getLocY());
+	    
+	    assertNotNull(robot);
+	    robot = new Robot(3,0,3);
+	    // Move robot to the right from position[3,0]
+	    robot.moveRight();
+	    assertEquals("Robot cannot move right", 3, robot.getLocX());
+	    assertEquals("Robot cannot move right", 0, robot.getLocY());
 	}
 	
 	@Test
@@ -69,6 +83,13 @@ class RobotTester {
 	    robot.moveDown();
 	    assertEquals("Robot can move down", 0, robot.getLocX());
 	    assertEquals("Robot can move down", 1, robot.getLocY());
+
+	    assertNotNull(robot);
+	    robot = new Robot(0,3,3);
+	    // Move robot to the right from position[0,3]
+	    robot.moveDown();
+	    assertEquals("Robot cannot move down", 0, robot.getLocX());
+	    assertEquals("Robot cannot move down", 3, robot.getLocY());
 	}
 		
 	@Test
