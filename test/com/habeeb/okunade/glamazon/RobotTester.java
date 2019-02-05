@@ -5,9 +5,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.runner.RunWith;
 
 import com.habeeb.okunade.glamazon.model.Robot;
 
+@RunWith(JUnitPlatform.class)
 @DisplayName("Robot Tester")
 class RobotTester {
 	
@@ -20,7 +23,7 @@ class RobotTester {
 	}
 	
 	@Test
-	@DisplayName("Robot cannot move out of the grid when at the edge")
+	@DisplayName("Robot cannot move out of the grid when at the upper-left edge")
 	  public static void testRobotCannotMoveOutOfGrid() {
 	    // Test case with the age is a numeric string
 	    robot.moveLeft();
@@ -31,5 +34,20 @@ class RobotTester {
 	      assertEquals(0, robot.getLocY(), "Robot cannot move up");
 	    });
 	}
+	
+	@Test
+	@DisplayName("Robot cannot move out of the grid when at the upper-left edge")
+	  public static void testRobotCanMoveInsideGrid() {
+	    // Test case with the age is a numeric string
+	    robot.moveRight();
+	    robot.moveDown();
+	    assertAll("Do many assertions.", () -> {
+	      assertNotNull(robot);
+	      assertEquals(1, robot.getLocX(), "Robot can move right");
+	      assertEquals(1, robot.getLocY(), "Robot cannot move down");
+	    });
+	}
+	
+	
 
 }
