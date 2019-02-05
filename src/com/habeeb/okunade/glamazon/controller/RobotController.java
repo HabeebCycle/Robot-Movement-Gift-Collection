@@ -9,7 +9,6 @@ public class RobotController{
 	private List<List<Integer>> xyGift;	//Location of the gifts [[x1,y1],[x2,y2],[x3,y3],...]
 	private String robotCommand[];		//Set of movement command for the robot [UDLR]
 	
-	private int numGiftPicked;			//Number of gift picked up by the robot
 	private Robot robot;				//Instance of robot movement.
 	
 	/* GiftCollection constructor
@@ -42,8 +41,8 @@ public class RobotController{
 		robot = new Robot(x, y, n);			
 	}
 	
-	private void getNumOfGift(){
-		numGiftPicked = robot.getGiftPicked().size();
+	public int getNumOfGift(){
+		return robot.getGiftPicked().size();
 	}
 	
 	public void getNumOfGiftAndRobotPosition(){
@@ -83,6 +82,10 @@ public class RobotController{
 		}
 	}
 	
+	public Robot getCurrentRobot() {
+		return robot;
+	}
+	
 	private void reportSituation(){
 		System.out.println ("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 		System.out.println ("INPUT DATA");
@@ -92,7 +95,7 @@ public class RobotController{
 		System.out.println ("Gift positions: "+xyGift);
 		System.out.println ("Robot Commands: "+Arrays.asList(robotCommand));
 		System.out.println ("\nOUTPUT DATA");
-		System.out.println ("Gift Picked: "+numGiftPicked+" presents");
+		System.out.println ("Gift Picked: "+getNumOfGift()+" presents");
 		System.out.println (robot.getRobotCurrentLocation());
 	}
 }
